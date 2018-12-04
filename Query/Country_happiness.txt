@@ -1,0 +1,39 @@
+--самая счастливая по country_code: "US"	"23"
+
+Select country_code, sum(text_sentiment) as text_sentiment from twitter_table 
+where country_code is not null and country_code <> "None"
+group by country_code
+order by text_sentiment desc
+limit 1
+
+
+
+
+-- самая счастливая страна == USA # по локации
+
+Select location, sum(text_sentiment) as text_sentiment from twitter_table 
+where location is not null and location <> ""
+group by location
+order by text_sentiment desc
+limit 1
+
+
+
+-- самая несчастная == "PT"	"-5"  # по country_code
+
+Select country_code, sum(text_sentiment) as text_sentiment from twitter_table 
+where country_code is not null and country_code <> "None"
+group by country_code
+order by text_sentiment
+limit 1
+
+
+
+
+-- самая несчастная == London # по локации
+
+Select location, sum(text_sentiment) as text_sentiment from twitter_table 
+where location is not null and location <> ""
+group by location
+order by text_sentiment
+limit 1

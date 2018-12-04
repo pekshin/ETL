@@ -1,0 +1,21 @@
+-- самый счастливый user 
+
+God is so good Man I wish everyone could knЕ"	"14"
+Select country_code, name,location, tweet_text, sum(text_sentiment) as text_sentiment from twitter_table 
+where location is not null and location <> ""
+group by country_code, name,location,tweet_text
+order by text_sentiment desc
+
+limit 1
+
+
+
+
+-- самый несчастный user 
+
+Select country_code, name,location, tweet_text, sum(text_sentiment) as text_sentiment from twitter_table 
+where location is not null and location <> ""
+group by country_code, name,location,tweet_text
+order by text_sentiment 
+
+limit 1
